@@ -5,7 +5,7 @@ This Java Spring Boot JSF PrimeFaces MVC Web application was made by the followi
 - Visual Studio Code with the Microsoft Java Extension Pack	
 - Microsoft Azure App Service with a Free App Service Plan for web hosting
 - JVM memory have been set to an alocation of 512 MB both initial and max because of the limited physial memory
-- MySQL Database>
+- MySQL Database
 - Tomcat JDBC Datasource instead of the default HikariCP 
 	
 - JSF, PrimeFaces, Entity Model as well as a Service and JPA Repository layer for mapping the Model to the Database	
