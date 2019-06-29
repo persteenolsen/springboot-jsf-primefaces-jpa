@@ -1,0 +1,28 @@
+
+# In the target folder and all its sub folders all files will be ignored!
+target/
+#!.mvn/wrapper/maven-wrapper.jar
+
+# In the bin folder and all its sub folders all files will be ignored!
+bin/
+
+*.properties
+!src/main/resources/messages.properties
+
+# May already be ignored by target/
+*.class
+
+# May already be ignored by target/ and .mvn
+*.jar
+*.war
+
+# Ignore the folloing types
+.classpath
+.project
+.settings
+
+.vscode
+.mvn
+
+*.cmd
+mvnw

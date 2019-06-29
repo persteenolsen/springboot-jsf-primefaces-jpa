@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Spring Boot JSF PrimeFaces JPA</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	
+	<style>
+		.body {margin: 0pt;}
+		.header {margin: 0pt; height: 38pt; background-color: gray; }
+		.menu-header { margin-top: 0pt; margin-left: 15pt; margin-right: 15pt;}
+        .header-text {margin: 15pt; color: Green; font-family: Verdana, sans-serif; font-size: 14pt}
+        .jvminfo-text {margin: 15pt; font-family: Verdana, sans-serif; font-size: 11pt}
+		.body-content { margin: 15pt; font-family: Verdana, sans-serif}
+	   
+    </style>
+
+    </h:head>
+    <h:body class="body">
+		
+	
+        <div class="header">
+        <div class="menu-header">
+        <h:form>
+        <p:menu toggleable="true">
+            
+            <p:submenu label="A PrimeFaces Menu">
+                <p:menuitem value="Show Persons" url="persons.xhtml" icon="pi pi-star"/>
+                <p:menuitem value="My Spring Boot Apps" target= "_blank" url="http://www.persteenolsen.com/java-spring-boot/" icon="pi pi-home"/>
+                
+            </p:submenu>
+        </p:menu>
+    </h:form>
+</div>
+</div>
+
+       <div class="header-text">A Java Spring Boot JSF PrimeFaces JPA MySQL Web Application</div>
+        
+       <div class="jvminfo-text"> #{personController.getJVMHeap()} </div>
+        
+       
+	 <div class="body-content">
+
+        
+	<b>Note:</b> The Web applications 1-2 minutes initial load time is because I am using
+	a <br><i>Free App Service Plan at Microsoft Azure</i></br> 
+	because the work is for demonstration and testing purposes only!
+	
+	<br/>
+	<br/>
+	This Java Spring Boot JSF PrimeFaces MVC Web application was made by the following technology:
+	<br/><br/>
+
+	<ul>
+
+	<li>Visual Studio Code with the Microsoft Java Extension Pack</li>	
+	<li>Microsoft Azure App Service with a Free App Service Plan for web hosting</li>
+	<li>JVM memory have been set to an alocation of 512 MB both initial and max because of the limited physial memory</li>
+	<li>MySQL Database</li>
+	<li>Tomcat JDBC Datasource instead of the default HikariCP </li> 
+	</ul>
+
+	<ul>
+		<li>JSF, PrimeFaces - MVC as well as a Service and JPA Repository layer</li>	
+		<li>Maven as build tool</li>	
+		<li>JPA implemented by Hibernate for initializing the Database and mapping objects</li>
+		<li>Hibernate Validator and Apache Commons Validater for server side form validation</li>
+		
+	</ul>
+
+	<ul>
+		<li>PrimeFaces for the View part ( GUI )</li>
+		
+	</ul>
+	
+
+        
+    </div>
+    </h:body>
+</html>
+
