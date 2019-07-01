@@ -17,6 +17,9 @@ import com.persteenolsen.springbootjsfprimefacesjpa.model.PersonEntity;
 //import com.persteenolsen.springbootjsfprimefacesjpa.dao.PersonRepository;
 import com.persteenolsen.springbootjsfprimefacesjpa.service.PersonService;
 
+//import javax.faces.application.FacesMessage;
+//import javax.faces.context.FacesContext;
+
 @Named(value = "personController")
 //@SessionScoped
 @ViewScoped
@@ -132,6 +135,7 @@ public class personController implements Serializable {
         this.person.setAge(this.age);
        
         personRService.saveOrUpdate(this.person);
+
 
         //personRepository.save(this.person);
 

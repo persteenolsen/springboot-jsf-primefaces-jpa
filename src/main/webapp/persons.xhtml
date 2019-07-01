@@ -40,20 +40,20 @@
        <div class="header-text">A Java Spring Boot JSF PrimeFaces JPA MySQL Web Application</div>
         
        <div class="jvminfo-text"> #{personController.getJVMHeap()} </div>
-        
-       <div class="warning-messages"> Note: I still need to implement validation messages and 
-       because of that nothing will happen if you dont enter valid values! 
-       </div>
-       <br/> 
+       
 
        <div class="warning-messages"> Note: Up to 10 seconds response time due to the limited resources! 
         </div>
         <br/> 
+    
+    
 
     <div class="list-content"> 
 
 
         <h:form  id="form">
+
+
             <p:dataTable reflow="true" rows="5" paginator="true" value="#{personController.getAllPersons()}" var="person" rowKey="#{person.id}">
             
 
@@ -79,50 +79,84 @@
             
             <p:dialog header="Edit Person" widgetVar="editDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                 <p:outputPanel id="personEdit" style="text-align:center;">
-                    <p:panelGrid  columns="2" rendered="#{not empty personController.selectedPerson}" >
+                      
+                      
+                <p:panelGrid id="gridupdate" columns="1" rendered="#{not empty personController.selectedPerson}" >
+                           
 
-                        <h:outputText value="Name: " />
-                        <p:inputText  value="#{personController.selectedPerson.name}" />
+                <h:outputLabel for="name" value="Name:" style="font-weight:bold"/>
+                <h:outputText value="* (Length 2 to 30 letters)" />
+                <p:inputText id="name" label="Name" required="true" value="#{personController.selectedPerson.name}">
+                        <f:validateLength minimum = "2" maximum = "30" />
+                </p:inputText>
+                <p:message for="name" />
 
-                        <h:outputText value="Email: " />
-                        <p:inputText value="#{personController.selectedPerson.email}" />
+                <h:outputLabel for="email" value="Email:" style="font-weight:bold"/>
+                <h:outputText value="* (7 to 30 letters)" />
+                <p:inputText id="email" label="Email" required="true" value="#{personController.selectedPerson.email}" >
+                        <f:validateLength minimum = "7" maximum = "30" />
+                </p:inputText>
+                <p:message for="email" />
 
-                        <h:outputText value="Age: " />
-                        <p:inputText value="#{personController.selectedPerson.age}"/>
+                <h:outputLabel for="age" value="Age:" style="font-weight:bold"/>
+                <h:outputText value="* (Number from 18 to 125)" />
+                <p:inputText  id="age" label="Age" required="true" value="#{personController.selectedPerson.age}">
+                        <f:validateDoubleRange minimum="18" maximum="125" />
+                 </p:inputText>
+                <p:message for="age" />
+
 
                     </p:panelGrid>
 
-                    <p:commandButton value="Update" icon="fa fa-fw fa-pencil" action="#{personController.updatePerson()}"/>
+                    <p:commandButton update="gridupdate" value="Update" icon="fa fa-fw fa-pencil" action="#{personController.updatePerson()}"   />
                 </p:outputPanel>
             </p:dialog>
         </h:form>
         
     </div>
 
-  
-    
+      
 	 <div class="form-content">
-            <br/> 
-        When adding a new Person at the form below all fields marked with * are mandatory
-        <br/>   <br/> 
-        
-        <h:form>
-            <h:panelGrid columns="1" cellpadding="5">
-               
-                <h:outputText value="* Name (Length 2 to 30 letters)" />
-                <p:inputText value="#{personController.name}"/>
+         <br/>
+            Add a new Person in the form below:   
+        <br/>
 
-                <h:outputText value="* Email (xxx@yyy.com)" />
-                <p:inputText value="#{personController.email}" />
-
-                <h:outputText value="* Age (Number from 18 to 125)" />
-                <p:inputText value="#{personController.age}"/>
-
-                <p:commandButton value="Add Person" action="#{personController.createPerson()}"/>
-            </h:panelGrid>
-        </h:form>
-        
-    </div>
+            <h:form>
+                
+                   
+                <h:panelGrid id="gridcreate" columns="1" cellpadding="5">
+                    
+                    <!--<p:messages id="msgscreate" autoUpdate="true" />-->
+                                        
+                    <h:outputLabel for="name" value="Name:" style="font-weight:bold"/>
+                    <h:outputText value="* (Length 2 to 30 letters)" />
+                    <p:inputText id="name" label="Name" required="true" value="#{personController.name}">
+                            <f:validateLength minimum = "2" maximum = "30" />
+                    </p:inputText>
+                    <p:message for="name" />
+    
+                    <h:outputLabel for="email" value="Email:" style="font-weight:bold"/>
+                    <h:outputText value="* (xxx@yyy.com / 7 to 30 letters)" />
+                    <p:inputText id="email" label="Email" required="true" value="#{personController.email}" >
+                            <f:validateLength minimum = "7" maximum = "30" />
+                    </p:inputText>
+                    <p:message for="email" />
+    
+                    <h:outputLabel for="age" value="Age:" style="font-weight:bold"/>
+                    <h:outputText value="* (Number from 18 to 125)" />
+                    <p:inputText  id="age" label="Age" required="true" value="#{personController.age}">
+                            <f:validateDoubleRange minimum="18" maximum="125" />
+                     </p:inputText>
+                    <p:message for="age" />
+    
+    
+                    <p:commandButton value="Add Person" update="gridcreate" action="#{personController.createPerson()}"/>
+                </h:panelGrid>
+           
+            </h:form>
+            
+        </div>
+  
     </h:body>
 </html>
 
