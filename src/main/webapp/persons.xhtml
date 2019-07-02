@@ -29,7 +29,7 @@
        <div class="menu-header">
         <h:form>
         <p:menu toggleable="true">
-           <p:submenu label="A PrimeFaces Menu">
+           <p:submenu  label="A PrimeFaces Menu">
                 <p:menuitem value="About this Application" url="welcome.xhtml" icon="pi pi-star"/>
                 <p:menuitem value="My Spring Boot Apps" target= "_blank" url="http://www.persteenolsen.com/java-spring-boot/" icon="pi pi-home"/>
                 
@@ -79,42 +79,35 @@
             </p:dataTable>
 
             
-            <p:dialog header="Edit Person"  draggable="true" resizable="true" widgetVar="editDialog" modal="true" showEffect="fade" hideEffect="fade" >
-                <p:outputPanel id="personEdit" style="text-align: center; margin-top:30pt; margin-bottom:10pt;" >
-                      
-                      
+            <p:dialog  header="Edit Person" position="center,bottom" draggable="true" resizable="true" widgetVar="editDialog" modal="true" showEffect="fade" hideEffect="fade" >
+                <p:outputPanel id="personEdit" style="text-align: center; margin-bottom:30pt;" >
+                                        
                 <p:panelGrid id="gridupdate" columns="1" rendered="#{not empty personController.selectedPerson}" >
                            
 
                 <h:outputLabel for="name" value="Name:" style="font-weight:bold"/>
                 <h:outputText value="* (2 to 30 letters)" />
-                <!--<p:inputText id="name" label="Name" required="true" value="#{personController.selectedPerson.name}">
-                        <f:validateLength minimum = "2" maximum = "30" />
-                </p:inputText>-->
+
                 <p:inputText id="name" label="Name"  value="#{personController.selectedPerson.name}" />
                 
                 <p:message for="name" />
 
                 <h:outputLabel for="email" value="Email:" style="font-weight:bold"/>
-                <h:outputText value="* (7 to 30 letters)" />
-                <!--<p:inputText id="email" label="Email" required="true" value="#{personController.selectedPerson.email}" >
-                        <f:validateLength minimum = "7" maximum = "30" />
-                </p:inputText>-->
+                <h:outputText value="* (xxx@yyyy.com)" />
+               
                 <p:inputText id="email" label="Email" value="#{personController.selectedPerson.email}" />
                         
                 <p:message for="email" />
-
+    
                 <h:outputLabel for="age" value="Age:" style="font-weight:bold"/>
                 <h:outputText value="* (Number from 18 to 125)" />
-                <!--<p:inputText  id="age" label="Age" required="true" value="#{personController.selectedPerson.age}">
-                        <f:validateDoubleRange minimum="18" maximum="125" />
-                 </p:inputText>-->
-                 <p:inputText  id="age" label="Age" value="#{personController.selectedPerson.age}" />
-                       
+                                
+                <p:inputNumber maxValue="125" decimalPlaces="0" thousandSeparator="" validatorMessage="Age needs to be a number from 18 to 125!" id="age" label="Age" value="#{personController.selectedPerson.age}" />
+                     
                 <p:message for="age" />
 
 
-                    </p:panelGrid>
+                 </p:panelGrid>
 
                     <p:commandButton update="gridupdate" value="Update" icon="fa fa-fw fa-pencil" action="#{personController.updatePerson()}"   />
                 </p:outputPanel>
@@ -132,34 +125,29 @@
             <h:form>
                 
                    
-                <h:panelGrid id="gridcreate" columns="1" cellpadding="5">
+                <h:panelGrid id="gridcreate"  columns="1" cellpadding="5">
                     
-                    <!--<p:messages id="msgscreate" autoUpdate="true" />-->
                                         
                     <h:outputLabel for="name" value="Name:" style="font-weight:bold"/>
-                    <h:outputText value="* (Length 2 to 30 letters)" />
+                    <h:outputText value="* (2 to 30 letters)" />
                     <p:inputText id="name" label="Name" required="true" value="#{personController.name}">
                             <f:validateLength minimum = "2" maximum = "30" />
                     </p:inputText>
-                   <!-- <p:inputText id="name" label="Name" value="#{personController.name}" />-->
-                            
                     <p:message for="name" />
     
                     <h:outputLabel for="email" value="Email:" style="font-weight:bold"/>
-                    <h:outputText value="* (xxx@yyy.com / 7 to 30 letters)" />
-                    <p:inputText id="email" label="Email" required="true" value="#{personController.email}" >
-                            <f:validateLength minimum = "7" maximum = "30" />
+                    <h:outputText value="* (xxx@yyyy.com)" />
+                    <p:inputText validatorMessage="Invalid email format!" id="email" label="Email" required="true" value="#{personController.email}" >
+                           <f:validateRegex  pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
                     </p:inputText>
-                    <!--<p:inputText id="email" label="Email" value="#{personController.email}" />-->
                      
                     <p:message for="email" />
     
                     <h:outputLabel for="age" value="Age:" style="font-weight:bold"/>
                     <h:outputText value="* (Number from 18 to 125)" />
-                    <p:inputText  id="age" label="Age" required="true" value="#{personController.age}">
+                    <p:inputNumber maxValue="125" decimalPlaces="0" thousandSeparator="" validatorMessage="Age needs to be a number from 18 to 125!" id="age" label="Age" required="true" value="#{personController.age}">
                             <f:validateDoubleRange minimum="18" maximum="125" />
-                     </p:inputText>
-                     <!--<p:inputText  id="age" label="Age" value="#{personController.age}" />-->
+                     </p:inputNumber>
                            
                     <p:message for="age" />
                 
