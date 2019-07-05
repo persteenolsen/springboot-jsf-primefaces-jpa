@@ -13,7 +13,7 @@ public class WelcomePageRedirect implements WebMvcConfigurer {
 
     // Request from the top of the domain
     registry.addViewController("/")
-        .setViewName("forward:/persons.xhtml");
+        .setViewName("forward:/listpersons.xhtml");
 
     registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 

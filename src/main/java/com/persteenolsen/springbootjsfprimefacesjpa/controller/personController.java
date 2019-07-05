@@ -2,8 +2,8 @@ package com.persteenolsen.springbootjsfprimefacesjpa.controller;
 
 import javax.inject.Named;
 
-//import javax.enterprise.context.SessionScoped;
-import javax.faces.view.ViewScoped;
+import javax.enterprise.context.SessionScoped;
+//import javax.faces.view.ViewScoped;
 import java.io.Serializable;
 import java.util.List;
 
@@ -21,8 +21,8 @@ import com.persteenolsen.springbootjsfprimefacesjpa.service.PersonService;
 //import javax.faces.context.FacesContext;
 
 @Named(value = "personController")
-//@SessionScoped
-@ViewScoped
+@SessionScoped
+//@ViewScoped
 public class personController implements Serializable {
 
     
@@ -139,7 +139,9 @@ public class personController implements Serializable {
 
         //personRepository.save(this.person);
 
-        return "persons.xhtml?faces-redirect=true";
+       // return "persons.xhtml?faces-redirect=true";
+       return "listpersons.xhtml?faces-redirect=true";
+
     }
 
     
@@ -148,7 +150,8 @@ public class personController implements Serializable {
         personRService.saveOrUpdate(this.selectedPerson);
        // personRepository.save(this.selectedPerson);
 
-        return "persons.xhtml?faces-redirect=true";
+       // return "persons.xhtml?faces-redirect=true";
+       return "listpersons.xhtml?faces-redirect=true";
     }
 
     public String deletePerson(PersonEntity person) {
@@ -158,6 +161,8 @@ public class personController implements Serializable {
 
         //personRepository.delete(person);
 
-        return "persons.xhtml?faces-redirect=true";
+       // return "persons.xhtml?faces-redirect=true";
+        return "listpersons.xhtml?faces-redirect=true";
+
     }
 }

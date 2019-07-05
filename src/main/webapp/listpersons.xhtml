@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Spring Boot JSF PrimeFaces JPA</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	
+	<style>
+        .body {margin: 0pt;}
+        .header {margin: 0pt; height: 38pt; background-color: gray; }
+		.menu-header { margin-top: 0pt; margin-left: 15pt; margin-right: 15pt;}
+        .header-text {margin: 15pt; color: Green; font-family: Verdana, sans-serif; font-size: 14pt}
+        .jvminfo-text {margin: 15pt; font-family: Verdana, sans-serif; font-size: 11pt}
+		.form-content { color:green; margin: 10pt; margin-right: 10pt; font-size: 14pt; font-family: Verdana, sans-serif}
+        .list-content { margin: 10pt; margin-right: 10pt; font-family: Verdana, sans-serif}
+        .warning-messages {margin-left: 15pt; color: orange; font-family: Verdana, sans-serif; font-size: 12pt}
+        .ui-dialog { top: 100pt; }
+    
+    </style>
+
+    </h:head>
+    <h:body class="body">
+       
+     <div class="header">
+       <div class="menu-header">
+        <h:form>
+        <p:menu toggleable="true">
+           <p:submenu  label="A PrimeFaces Menu">
+                <p:menuitem value="About this Application" url="welcome.xhtml" icon="pi pi-star"/>
+                <p:menuitem value="My Spring Boot Apps" target= "_blank" url="http://www.persteenolsen.com/java-spring-boot/" icon="pi pi-home"/>
+                
+            </p:submenu>
+        </p:menu>
+       </h:form>
+     </div>
+    </div>
+
+       <div class="header-text">A Java Spring Boot JSF PrimeFaces JPA MySQL Web Application</div>
+        
+       <div class="jvminfo-text"> #{personController.getJVMHeap()} </div>
+       
+
+       <div class="warning-messages"> Note: Up to 10 seconds response time due to the limited resources! 
+        </div>
+        <br/> 
+    
+       
+        <h:form  id="form">
+            
+           <div class="form-content">
+              <p:commandButton value="Add a Person" action="formcreateperson.xhtml?faces-redirect=true" ></p:commandButton>
+           </div>
+
+            <div class="list-content"> 
+
+            <p:dataTable reflow="true" rows="5" paginator="true" value="#{personController.getAllPersons()}" var="person" rowKey="#{person.id}">
+            
+
+                <p:column headerText="Name">
+                    <h:outputText value="#{person.name}"/>
+                </p:column>
+
+                <p:column headerText="Email">
+                    <h:outputText value="#{person.email}"/>
+                </p:column>
+
+                <p:column headerText="Age">
+                    <h:outputText value="#{person.age}"/>
+                </p:column>
+
+                <p:column style="text-align: left">
+                        <p:commandButton action="formupdateperson.xhtml?faces-redirect=true"  title="Update">
+                                
+                        <f:setPropertyActionListener value="#{person}" target="#{personController.selectedPerson}" />                   
+                    </p:commandButton>
+                   
+                        <p:commandButton action="#{personController.deletePerson(person)}" title="Delete"></p:commandButton>
+                </p:column>
+            </p:dataTable>
+
+        </div>
+
+        </h:form>
+        
+
+      
+  
+    </h:body>
+</html>
+
