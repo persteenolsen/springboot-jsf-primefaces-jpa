@@ -13,7 +13,7 @@
         .body {margin: 0pt;}
         .header {margin: 0pt; height: 38pt; background-color: gray; }
 		.menu-header { margin-top: 0pt; margin-left: 15pt; margin-right: 15pt;}
-        .header-text {margin: 15pt; color: Green; font-family: Verdana, sans-serif; font-size: 14pt}
+        .header-text {margin: 15pt; font-family: Verdana, sans-serif; font-size: 14pt}
        
 		.form-content { margin: 10pt; margin-right: 10pt; font-family: Verdana, sans-serif}
        
@@ -40,7 +40,7 @@
      </div>
     </div>
 
-       <div class="header-text">Update the Person</div>
+     <div class="header-text">Update the Person in the form below: </div>
         
        
 
@@ -50,7 +50,7 @@
 
         <h:form>
            
-            <p:panelGrid  id="gridupdate" columns="1" rendered="#{not empty personController.selectedPerson}"  >
+            <p:panelGrid styleClass="ui-noborder" id="gridupdate" columns="1" rendered="#{not empty personController.selectedPerson}"  >
                            
 
             <h:outputLabel for="name" value="Name:"/>
@@ -78,9 +78,9 @@
               
              <br/>
               <p:commandButton update="gridupdate" value="Update the person" icon="fa fa-fw fa-pencil" action="#{personController.updatePerson()}"   />
-              <br/><br/>
+              <!--<br/><br/>
               <p:commandButton   value="List Persons" action="listpersons.xhtml?faces-redirect=true" />
-           
+              -->
         </h:form>
 
     </div>
