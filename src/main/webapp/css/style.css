@@ -1,0 +1,30 @@
+
+/* used in all xhtml */ 
+.body {margin: 0pt;}
+
+.header {margin: 0pt; height: 38pt; background-color: gray; }
+.menu-header { margin-top: 0pt; margin-left: 15pt; margin-right: 15pt;}
+.header-text {margin: 15pt; color: Green; font-family: Verdana, sans-serif; font-size: 14pt}
+
+/* Used in welcome.xhtml */
+.body-content { margin: 15pt; font-family: Verdana, sans-serif}
+
+/* used in welcome.xhtml and listpersons.xhtml */ 
+.jvminfo-text {margin: 15pt; font-family: Verdana, sans-serif; font-size: 11pt}
+
+/* used in listpersons.xhtml  */
+.warning-messages {margin-left: 15pt; color: orange; font-family: Verdana, sans-serif; font-size: 12pt}
+.ui-datatable {margin-left:10pt;}
+
+       
+/* used in formcreateperson.xhtml and formupdateperson.xhtml */        
+.ui-panelgrid {margin-left:10pt;}
+
+/* used in all xhtml */ 
+.ui-button {margin-left:15pt; padding-right:15pt;}
+
+/* Test and used in the test file showmenu.xhtml */ 
+h1 {
+    color: navy;
+    margin-left: 20px;
+  }

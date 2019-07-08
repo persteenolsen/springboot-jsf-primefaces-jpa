@@ -9,97 +9,69 @@
     <h:head>
         <title>Spring Boot JSF PrimeFaces JPA</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-	
-	<style>
-        .body {margin: 0pt; }
-
-        .header {margin: 0pt; height: 38pt; background-color: gray; }
-		.menu-header { margin-top: 0pt; margin-left: 15pt; margin-right: 15pt;}
-        .header-text {margin: 15pt; font-family: Verdana, sans-serif; font-size: 14pt;}
-        
-        .header-text {margin: 15pt; font-family: Verdana, sans-serif; font-size: 14pt}
-        .ui-panelgrid {margin-left:10pt;}
-        .ui-button{margin-left:15pt; padding-right:15pt;}
-    </style>
-
+	     
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    
+        <!--Not working eigther in the folder "recources" or "webapp"-->
+        <!--<h:outputStylesheet name="/css/style.css"  />-->
+    
     </h:head>
     <h:body class="body">
        
      <div class="header">
        <div class="menu-header">
-       
-        <!--
-        <h:form>
-        <p:menu toggleable="true">
-           <p:submenu  label="A PrimeFaces Menu">
-                <p:menuitem value="About this Application" url="welcome.xhtml" icon="pi pi-star"/>
-                
-                
-                
-                <p:menuitem value="List Persons" url="listpersons.xhtml" icon="pi pi-star"/>
-            </p:submenu>
-        </p:menu>
-       </h:form>-->
-       
-       
-       <!--Note: for demo I am including the menu as a file -->			
-       <ui:include src="menu.xhtml"/>
+             
+         <!--The menu with items is as a file -->			
+         <ui:include src="menu.xhtml"/>
      
      </div>
     </div>
-
 
     
     <br/>
     
     <div class="header-text">
-        
-        Add a new Person in the form below: 
-          
-    </div>  
+         Add a new Person in the form below: 
+     </div>  
                
    
      <h:form>
                   
         <p:panelGrid styleClass="ui-noborder" id="gridcreate" columns="1" cellpadding="5">
-                       
-                                           
-                       <h:outputLabel for="name" value="Name:" />
-                       <h:outputText value="* (2 to 30 letters)" />
-                       <p:inputText id="name" label="Name" required="true" value="#{personController.name}">
-                               <f:validateLength minimum = "2" maximum = "30" />
-                       </p:inputText>
-                       <p:message for="name" />
+                                                        
+            <h:outputLabel for="name" value="Name:" />
+            <h:outputText value="* (2 to 30 letters)" />
+            <p:inputText id="name" label="Name" required="true" value="#{personController.name}">
+                <f:validateLength minimum = "2" maximum = "30" />
+             </p:inputText>
+             <p:message for="name" />
        
-                       <h:outputLabel for="email" value="Email:" />
-                       <h:outputText value="* (xxx@yyyy.com)" />
-                       <p:inputText validatorMessage="Invalid email format!" id="email" label="Email" required="true" value="#{personController.email}" >
-                              <f:validateRegex  pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-                       </p:inputText>
+             <h:outputLabel for="email" value="Email:" />
+             <h:outputText value="* (xxx@yyyy.com)" />
+             <p:inputText validatorMessage="Invalid email format!" id="email" label="Email" required="true" value="#{personController.email}" >
+                <f:validateRegex  pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+             </p:inputText>
                         
-                       <p:message for="email" />
+            <p:message for="email" />
        
-                       <h:outputLabel for="age" value="Age:" />
-                       <h:outputText value="* (Number from 18 to 125)" />
-                       <p:inputNumber maxValue="125" decimalPlaces="0" thousandSeparator="" validatorMessage="Age needs to be a number from 18 to 125!" id="age" label="Age" required="true" value="#{personController.age}">
-                               <f:validateDoubleRange minimum="18" maximum="125" />
-                        </p:inputNumber>
+            <h:outputLabel for="age" value="Age:" />
+            <h:outputText value="* (Number from 18 to 125)" />
+            <p:inputNumber maxValue="125" decimalPlaces="0" thousandSeparator="" validatorMessage="Age needs to be a number from 18 to 125!" id="age" label="Age" required="true" value="#{personController.age}">
+                <f:validateDoubleRange minimum="18" maximum="125" />
+            </p:inputNumber>
                               
-                       <p:message for="age" />
+            <p:message for="age" />
                       
-                    
-                      
-                </p:panelGrid>
+                             
+         </p:panelGrid>
                      
-                <br/>
+         <br/>
                
-                <p:commandButton value="Add the Person" update="gridcreate" action="#{personController.createPerson()}" />
+         <p:commandButton value="Add the Person" update="gridcreate" action="#{personController.createPerson()}" />
                
-                 
-               
+                   
     </h:form>
-            
-       
+          
    </h:body>
   </html>
     
