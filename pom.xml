@@ -84,13 +84,22 @@
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
         </exclusion>
-    </exclusions>
+      </exclusions>
 		</dependency>
-    <dependency>
-    <groupId>org.apache.tomcat</groupId>
-    <artifactId>tomcat-jdbc</artifactId>
-    <version>9.0.10</version>
-    </dependency>
+    
+	  
+         <!--Note: Change with Java 11-->
+		 <dependency>
+          <groupId>mysql</groupId>
+           <artifactId>mysql-connector-java</artifactId>
+         </dependency>
+
+	  <!--Note: Maybe it is needed to specify a Tomcat version number -->
+	   <dependency>
+         <groupId>org.apache.tomcat</groupId>
+         <artifactId>tomcat-jdbc</artifactId>
+		 <!--<version>10.0.0</version>-->
+         </dependency>
 	
 
 		<dependency>
@@ -106,20 +115,6 @@
 			<optional>true</optional>
 		</dependency>
 
-
-		<!--<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>-->
-
-		 <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-	    <!--PS: New version nedeed to be manually downloded while upgrading to Java 11 from Java 8-->
-      <dependency>
-         <groupId>mysql</groupId>
-         <artifactId>mysql-connector-java</artifactId>
-         <version>8.0.26</version>
-       </dependency>
 
 		
 		<!--<dependency>
