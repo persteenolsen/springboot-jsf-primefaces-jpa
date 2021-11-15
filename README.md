@@ -2,6 +2,7 @@ A Java Spring Boot JSF PrimeFaces JPA Web Application
 
 This Java Spring Boot JSF PrimeFaces MVC Web application was made by the following technology:
 
+- Updated dependencies to use another MySQL DB
 - Migration from Java 8 to Java 11
 - Visual Studio Code with the Microsoft Java Extension Pack	
 - Microsoft Azure App Service with a Free App Service Plan for web hosting
